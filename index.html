@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Soumara - Gastronomie à Moundou</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #F5DEB3;
+            --accent-color: #A52A2A;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus,
+        .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0;
+            margin-top: 76px;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin-top: 15px;
+        }
+
+        .card {
+            border: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-card .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .price {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .gallery-item img {
+            transition: transform 0.5s;
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover,
+        .social-icons a:focus {
+            color: var(--secondary-color);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(139, 69, 19, 0.25);
+        }
+
+        /* Accessibilité */
+        a:focus,
+        button:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 100px 0;
+            }
+
+            .display-4 {
+                font-size: 2.5rem;
+            }
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .page-section {
+            min-height: 100vh;
+            padding-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#accueil">
+                <i class="bi bi-egg-fried me-2"></i>SOUMARA
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#accueil">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Galerie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Accueil Section -->
+    <section id="accueil" class="hero-section page-section">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-4">Restaurant Soumara</h1>
+            <p class="lead mb-4">Une expérience culinaire exceptionnelle au cœur de Moundou</p>
+            <a class="btn btn-primary btn-lg me-2" href="#contact" role="button">Réserver une table</a>
+            <a class="btn btn-outline-light btn-lg ms-2" href="#menu" role="button">Voir le menu</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="page-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Notre Histoire</h2>
+                    <p class="lead">Fondé en 2005 dans la ville de Moundou, le restaurant Soumara propose une cuisine
+                        raffinée inspirée des saveurs méditerranéennes avec une touche contemporaine.</p>
+                    <p>Nous combinons des ingrédients frais et locaux avec des techniques
+                        culinaires innovantes pour créer des plats uniques qui éveilleront vos papilles.</p>
+                    <p>Nous nous engageons à offrir à nos clients une expérience gastronomique mémorable dans un cadre
+                        élégant et chaleureux.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1610878180933-123728745d22?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+                        alt="Intérieur du restaurant Soumara" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="page-section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Notre Menu</h2>
+            <p class="text-center mb-5">Découvrez nos délicieuses spécialités préparées avec des ingrédients frais et de
+                saison.</p>
+
+            <ul class="nav nav-pills justify-content-center mb-5" id="menuTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="entrees-tab" data-bs-toggle="pill" data-bs-target="#entrees"
+                        type="button" role="tab" aria-controls="entrees" aria-selected="true">Entrées</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="plats-tab" data-bs-toggle="pill" data-bs-target="#plats" type="button"
+                        role="tab" aria-controls="plats" aria-selected="false">Plats Principaux</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="desserts-tab" data-bs-toggle="pill" data-bs-target="#desserts"
+                        type="button" role="tab" aria-controls="desserts" aria-selected="false">Desserts</button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="menuTabsContent">
+                <!-- Entrées -->
+                <div class="tab-pane fade show active" id="entrees" role="tabpanel" aria-labelledby="entrees-tab">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card menu-card h-100">
+                                <img src="https://images.unsplash.com/photo-1559715745-e1b33a271c8f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                                    class="card-img-top" alt="Tartare de saumon">
+                                <div class="card-body">
+                                    <h5 class="card-title">Tartare de saumon</h5>
+                                    <p class="card-text">Saumon frais mariné au citron et à l'aneth, servi avec toasts
+                                    </p>
+                                    <p class="price">2000 FCFA</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card menu-card h-100">
+                                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                                    class="card-img-top" alt="Salade méditerranéenne">
+                                <div class="card-body">
+                                    <h5 class="card-title">Salade méditerranéenne</h5>
+                                    <p class="card-text">Mélange de jeunes pousses, feta, olives et vinaigrette au
+                                        basilic</p>
+                                    <p class="price">3000 FCFA</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card menu-card h-100">
+                                <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                                    class="card-img-top" alt="Soupe de poisson">
+                                <div class="card-body">
+                                    <h5 class="card-title">Soupe de poisson</h5>
+                                    <p class="card-text">Soupe traditionnelle de poissons de roche, rouille et croûtons
+                                    </p>
+                                    <p class="price">1500 FCFA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plats Principaux -->
+                <div class="tab-pane fade" id="plats" role="tabpanel" aria-labelledby="plats-tab">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card menu-card h-100">
+                                <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                                    class="card-img-top" alt="Filet de boeuf">
+                                <div class="card-body">
+                                    <h5 class="card-title">Filet de bœuf</h5>
+                                    <p class="card-text">Filet de bœuf grillé, sauce au poivre vert, gratin dauphinois
+                                    </p>
+                                    <p class="price">4000 FCFA</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card menu-card h-100">
+                                <img src="https://images.unsplash.com/photo-1599921841143-819065a55cc6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
+                                    class="card-img-top" alt="Bar en croûte de sel">
+                                <div class="card-body">
+                                    <h5 class="card-title">Bar en croûte de sel</h5>
+                                    <p class="card-text">Bar de ligne cuit en croûte de sel, légumes de saison</p>
+                                    <p class="price">3000 FCFA</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card menu-card h-100">
+                                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                                    class="card-img-top" alt="Risotto aux champignons">
+                                <div class="card-body">
+                                    <h5 class="card-title">Risotto aux champignons</h5>
+                                    <p class="card-text">Risotto crémeux aux cèpes et truffe, parmesan</p>
+                                    <p class="price">2000 FCFA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desserts -->
+                <div class="tab-pane fade" id="desserts" role="tabpanel" aria-labelledby="desserts-tab">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card menu-card h-100">
+                                <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                                    class="card-img-top" alt="Fondant au chocolat">
+                                <div class="card-body">
+                                    <h5 class="card-title">Fondant au chocolat</h5>
+                                    <p class="card-text">Fondant chocolat noir, cœur coulant, glace vanille</p>
+                                    <p class="price">1000 FCFA</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card menu-card h-100">
+                                <img src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                                    class="card-img-top" alt="Tarte citron meringuée">
+                                <div class="card-body">
+                                    <h5 class="card-title">Tarte citron meringuée</h5>
+                                    <p class="card-text">Tarte au citron jaune, meringue italienne</p>
+                                    <p class="price">750 FCFA</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card menu-card h-100">
+                                <img src="https://images.unsplash.com/photo-1623334044303-241021148842?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                                    class="card-img-top" alt="Assiette de fromages">
+                                <div class="card-body">
+                                    <h5 class="card-title">Assiette de fromages</h5>
+                                    <p class="card-text">Sélection de fromages affinés, confiture de figues</p>
+                                    <p class="price">6000 FCFA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="page-section">
+        <div class="container">
+            <h2 class="section-title text-center">Galerie</h2>
+            <p class="text-center mb-5">Découvrez l'ambiance chaleureuse de notre restaurant et nos plats signature.</p>
+
+            <div class="row">
+                <div class="col-md-4 gallery-item">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                        alt="Salle principale du restaurant" class="img-fluid">
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                        alt="Notre chef préparant un plat" class="img-fluid">
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+                        alt="Plat gastronomique de poisson" class="img-fluid">
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1174&q=80"
+                        alt="Notre salle privée pour événements" class="img-fluid">
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1174&q=80"
+                        alt="Notre cave à vin selectionnée" class="img-fluid">
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                        alt="Pizza gastronomique aux truffes" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Reservation Section -->
+    <section id="contact" class="page-section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Contact & Réservations</h2>
+            <p class="text-center mb-5">Nous sommes à votre disposition pour toute question ou réservation.</p>
+
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title h4">Informations de contact</h3>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="bi bi-geo-alt-fill me-2"></i> 25 Rue Ngarta Tombalbaye BP: 26
+                                    Moundou</li>
+                                <li class="mb-2"><i class="bi bi-telephone-fill me-2"></i> +235 60 07 71 50 </li>
+                                <li class="mb-2"><i class="bi bi-envelope-fill me-2"></i> contact@soumara-restaurant.td
+                                </li>
+                            </ul>
+
+                            <h4 class="mt-4">Horaires d'ouverture</h4>
+                            <ul class="list-unstyled">
+                                <li>Lundi - Vendredi: 12h - 14h30 / 19h - 22h30</li>
+                                <li>Samedi: 19h - 23h</li>
+                                <li>Dimanche: Fermé</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title h4">Réservation en ligne</h3>
+                            <form id="reservationForm">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="name" class="form-label">Nom complet</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="phone" class="form-label">Téléphone</label>
+                                        <input type="tel" class="form-control" id="phone" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="guests" class="form-label">Nombre de personnes</label>
+                                        <select class="form-select" id="guests" required>
+                                            <option value="1">1 personne</option>
+                                            <option value="2" selected>2 personnes</option>
+                                            <option value="3">3 personnes</option>
+                                            <option value="4">4 personnes</option>
+                                            <option value="5">5 personnes</option>
+                                            <option value="6">6 personnes</option>
+                                            <option value="7">7 personnes ou plus</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="date" class="form-label">Date</label>
+                                        <input type="date" class="form-control" id="date" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="time" class="form-label">Heure</label>
+                                        <select class="form-select" id="time" required>
+                                            <option value="12:00">12:00</option>
+                                            <option value="12:30">12:30</option>
+                                            <option value="13:00">13:00</option>
+                                            <option value="13:30">13:30</option>
+                                            <option value="19:00">19:00</option>
+                                            <option value="19:30">19:30</option>
+                                            <option value="20:00">20:00</option>
+                                            <option value="20:30">20:30</option>
+                                            <option value="21:00">21:00</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message spécial (allergies, occasion
+                                        spéciale...)</label>
+                                    <textarea class="form-control" id="message" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Réserver</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="text-white mb-4">Restaurant Soumara</h3>
+                    <p>Une expérience gastronomique unique alliant tradition et innovation.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+                        <a href="#" aria-label="TripAdvisor"><i class="bi bi-star-fill"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="text-white mb-4">Liens rapides</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#accueil" class="text-white text-decoration-none">Accueil</a></li>
+                        <li><a href="#about" class="text-white text-decoration-none">À propos</a></li>
+                        <li><a href="#menu" class="text-white text-decoration-none">Menu</a></li>
+                        <li><a href="#gallery" class="text-white text-decoration-none">Galerie</a></li>
+                        <li><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="text-white mb-4">Newsletter</h5>
+                    <p>Inscrivez-vous à notre newsletter pour recevoir nos actualités et offres spéciales.</p>
+                    <form>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Votre email" aria-label="Votre email">
+                            <button class="btn btn-primary" type="submit">S'inscrire</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 Restaurant Soumara. Tous droits réservés.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">
+                        <a href="#" class="text-white text-decoration-none">Mentions légales</a> |
+                        <a href="#" class="text-white text-decoration-none">Politique de confidentialité</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap & Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        // Script pour gérer la soumission du formulaire de réservation
+        document.getElementById('reservationForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Merci pour votre réservation! Nous vous contacterons rapidement pour confirmer.');
+            this.reset();
+        });
+
+        // Script pour mettre à jour la navigation active
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.page-section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            window.addEventListener('scroll', function () {
+                let current = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
